@@ -23,8 +23,14 @@ test {
     useJUnitPlatform()
 }
 
+wrapper {
+    distributionType = Wrapper.DistributionType.ALL
+    gradleVersion="8.9.0"
+}
+
 tasks.register("buildAndRun"){
-    dependsOn build
+    group="my shit"
+    dependsOn clean, build
     dependsOn run
     doLast{
         println("Gradle finished gracefully")

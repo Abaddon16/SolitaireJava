@@ -1,0 +1,5 @@
+TODO
+
+- Add a BoardState style class. Use this to do test moves, and reset if board state is no better
+- Add some... heuristic? To gauge what board states are better than others (e.g. - more in foundations, more states that are consistent)
+- Make it so it doesn't take 3000 iterations to win T_T
