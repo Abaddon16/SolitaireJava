@@ -7,9 +7,7 @@ import java.util.List;
 public class Pile implements ICardPile{
     private final List<Card> cardList = new ArrayList<>(24);
     
-    public Pile(List<Card> cards)
-    {
-        cardList.addAll(cards);
+    public Pile(){
     }
     
     @Override
@@ -23,13 +21,17 @@ public class Pile implements ICardPile{
     }
     
     @Override
+    public List<Card> peekCards(){
+        return Collections.unmodifiableList(cardList);
+    }
+    
+    @Override
     public Card peekTopCard(){
         return cardList.isEmpty() ? null : cardList.get(0);
     }
     
-    @Override
-    public List<Card> peekCards(){
-        return Collections.unmodifiableList(cardList);
+    public List<Card> getTopCards(int num){
+        return Collections.unmodifiableList(cardList.subList(0, num));
     }
     
     @Override
@@ -38,26 +40,26 @@ public class Pile implements ICardPile{
     }
     
     @Override
-    public Card pop(){
-        return cardList.isEmpty() ? null : cardList.remove(0);
-    }
-    
-    @Override
     public void addAll(List<Card> cards){
         for(Card card:cards) add(card);
     }
     
+    public void setCardList(List<Card> cards){
+        cardList.clear();
+        cardList.addAll(cards);
+    }
+    
     @Override
     public boolean canCardStack(Card card){
-        return card.canStackOn(peekTopCard());
+        return false;
     }
     
-    public List<Card> getTopCards(int num){
-        return Collections.unmodifiableList(cardList.subList(0, num));
+    @Override
+    public Card pop(){
+        return cardList.isEmpty() ? null : cardList.remove(0);
     }
     
-    public void removeAll(List<Card> cards)
-    {
+    public void removeAll(List<Card> cards){
         cardList.removeAll(cards);
     }
     

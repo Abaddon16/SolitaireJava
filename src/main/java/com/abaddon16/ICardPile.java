@@ -18,11 +18,14 @@ public interface ICardPile{
     void add(Card card);
     
     /**
+     * @param cards the {@link Card Cards} to add to the top of this pile
+     */
+    void addAll(List<Card> cards);
+    
+    /**
      * @return get the {@link Card} from the top of this pile
      */
     Card pop();
-    
-    void addAll(List<Card> cards);
     
     /**
      * Checks if the given {@link Card} can stack onto this CardPile

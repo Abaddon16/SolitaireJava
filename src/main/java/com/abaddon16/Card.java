@@ -13,24 +13,17 @@ public class Card {
     public String getColor(){
         return suit.getColor();
     }
+    
     public int getValue(){
         return value.getValue();
     }
+    
     public CardSuit getSuit(){
         return suit;
     }
+    
     public CardValue getCardValue(){
         return value;
-    }
-
-    public boolean canStackOn(Card other){
-        if(value == CardValue.ACE) return false;
-        if(other == null) return value==CardValue.KING;
-        return !getColor().equals(other.getColor()) && (other.getValue() - getValue())==1;
-    }
-    
-    public boolean canStackOnFoundation(Foundation foundation){
-        return foundation.canCardStack(this);
     }
 
     @Override
