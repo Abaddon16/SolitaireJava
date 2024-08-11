@@ -18,9 +18,9 @@ public interface ICardPile{
     void add(Card card);
     
     /**
-     * @param cards the {@link Card Cards} to add to the top of this pile
+     * @param card the {@link Card Cards} to add to the top of this pile
      */
-    void addAll(List<Card> cards);
+    void add(List<Card> card);
     
     /**
      * @return get the {@link Card} from the top of this pile

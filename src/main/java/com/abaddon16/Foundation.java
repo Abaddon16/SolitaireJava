@@ -2,8 +2,9 @@ package com.abaddon16;
 
 import java.util.List;
 
-public class Pile extends ACardPile {
-    public Pile(){}
+public class Foundation extends ACardPile {
+    
+    
     
     @Override
     public void add(Card card){
@@ -17,8 +18,6 @@ public class Pile extends ACardPile {
     
     @Override
     public String toString(){
-        StringBuilder ret = new StringBuilder();
-        for(int i = cards.size()-1; i>=0; i--) ret.append(cards.get(i));
-        return ret.toString();
+        return "";
     }
 }
