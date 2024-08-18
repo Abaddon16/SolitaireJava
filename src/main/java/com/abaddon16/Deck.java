@@ -9,12 +9,13 @@ public class Deck extends ACardPile {
     private final Random random = new Random();
     
     public Deck(){
-//        random.setSeed(3);
+        random.setSeed(3);
         List<Card> tempCards = new ArrayList<>(52);
         for(CardSuit x:CardSuit.values()){
-            for(CardValue y:CardValue.values()) tempCards.add(new Card(x, y));
+            for(CardValue y:CardValue.values())
+                tempCards.add(new Card(x, y));
         }
-        cards = tempCards;
+        setCards(tempCards);
         shuffle();
     }
     
@@ -27,19 +28,7 @@ public class Deck extends ACardPile {
     }
     
     @Override
-    public void add(Card card){
-    
-    }
-    
-    @Override
-    public boolean canCardStack(Card card){
+    public boolean canStack(Card card, ICardPile source){
         return false;
-    }
-    
-    @Override
-    public String toString(){
-        StringBuilder ret = new StringBuilder();
-        for(int i = cards.size()-1; i>=0; i--) ret.append(cards.get(i));
-        return ret.toString();
     }
 }

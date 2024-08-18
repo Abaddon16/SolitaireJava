@@ -5,32 +5,15 @@ import java.util.List;
 public interface ICardPile{
     int size();
     boolean isEmpty();
+    boolean canStack(Card card, ICardPile source);
+    void clear();
+    
     Card peekTopCard();
+    List<Card> getCards();
     
-    /**
-     * @return The {@link List} of {@link Card Cards} in this pile
-     */
-    List<Card> peekCards();
+    Card getTopCard();
+    List<Card> getTopCards(int count);
     
-    /**
-     * @param card the {@link Card} to add to the top of this pile
-     */
-    void add(Card card);
-    
-    /**
-     * @param card the {@link Card Cards} to add to the top of this pile
-     */
-    void add(List<Card> card);
-    
-    /**
-     * @return get the {@link Card} from the top of this pile
-     */
-    Card pop();
-    
-    /**
-     * Checks if the given {@link Card} can stack onto this CardPile
-     * @param card the card to check
-     * @return {@code true} if the card can stack onto this CardPile
-     */
-    boolean canCardStack(Card card);
+    void addCard(Card card);
+    void addCards(List<Card> newCards);
 }
